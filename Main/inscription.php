@@ -133,28 +133,28 @@ if (mysqli_num_rows($res) == 0) {
         <form class="form" id="f3" action="send.php">
             <p>REMPLISSEZ LE FORMULAIRE DE PRÉ-INSCRIPTION</p>
             <div class="form-row">
-                <input type="text" placeholder="Nom">
-                <input type="email" placeholder="Prenom">
+                <input type="text" placeholder="Nom" name="nom3">
+                <input type="text" placeholder="Prenom" name="prenom3">
             </div>
             <div class="form-row">
-                <input type="text" placeholder="E-mail">
-                <input type="email" placeholder="Tel">
+                <input type="email" placeholder="E-mail" name="mail3">
+                <input type="tel" placeholder="Tel" name="tel3">
             </div>
             <div class="form-3-row">
-                <input type="text" placeholder="Ville">
-                <select name="" id="">
+                <input type="text" placeholder="Ville" name="ville3">
+                <select name="ob3" id="">
                     <option value="Diplome obtenue" selected>Selectionnez une formation</option>
                     <option value="GI">GI</option>
                     <option value="GAE">GAE</option>
                 </select>
-                <select name="" id="">
+                <select name="for3" id="">
                     <option value="Selectionnez une formation" selected>Selectionnez une formation</option>
                     <option value="GI">GI</option>
                     <option value="GAE">GAE</option>
                 </select>
             </div>
             <div class="form-col">
-                <textarea name="" id="" cols="30" rows="8" placeholder="Adresse"></textarea>
+                <textarea name="adr3" id="" cols="30" rows="8" placeholder="Adresse"></textarea>
             </div>
             <div class="form-col">
             <center><button type="submit" name="et">Envoyer</button></center>

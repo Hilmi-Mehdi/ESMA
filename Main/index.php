@@ -27,8 +27,170 @@ require_once 'Config.php';
                 <i id="menu-close" class="fas fa-times"></i>
                 <li><a href="index.php" class="active">Acceuil</a></li>
                 <li><a href="Presentation.php">Presentation</a></li>
+
+
+                <style>
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  width:140%;
+  padding-top:25px;
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.2);
+  border-radius: 0px 0px 10px 10px;
+  z-index: 1;
+}
+
+.dropdown-content a, .dropdown-btn {
+    font-size: 14px;
+  padding:16px;
+  color: rgb(21, 21, 100);
+  text-decoration: none;
+  display: block;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.dropdown-content a:hover, .dropdown-btn {color: #f7941d;background-color:#f1f1f1;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  text-decoration: none;
+  display: block;
+  border: none;
+  font-size: 14px;
+  color: rgb(21, 21, 100);
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+
+.dropdown-btn:hover {color: #f7941d;background-color:#f1f1f1;}
+</style>
+
+
+                <div class="dropdown">
                 <li><a href="formations.php">Diplomes Accrédités</a></li>
+                <div class="dropdown-content">
+                    <a href="architecture_des_formations.php">Architecture</a>
+
+                    <div class="sidenav">
+                    <button class="dropdown-btn">Genie informatique
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                    <?php
+
+$req = 'select * from formations where type="acc" and inti="info"';
+$res = mysqli_query($link, $req);
+
+if (mysqli_num_rows($res) == 0) {
+    echo 'OOPS';
+} else {
+    while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+        echo'<a href="formation-page.php?id='.$row['id'].'\'">'.$row['title'].'</a>';
+    }
+}
+
+?>
+                    </div>
+                    </div>
+
+                    <div class="sidenav">
+                    <button class="dropdown-btn">Gestion & Administration
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                    <?php
+
+$req = 'select * from formations where type="acc" and inti="man"';
+$res = mysqli_query($link, $req);
+
+if (mysqli_num_rows($res) == 0) {
+    echo 'OOPS';
+} else {
+    while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+        echo'<a href="formation-page.php?id='.$row['id'].'\'">'.$row['title'].'</a>';
+    }
+}
+
+?>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <script>
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+                
+                <div class="dropdown">
                 <li><a href="formations-france.php">Diplomes d'etat Francais</a></li>
+                <div class="dropdown-content">
+                <?php
+
+$req = 'select * from formations where type="fr"';
+$res = mysqli_query($link, $req);
+
+if (mysqli_num_rows($res) == 0) {
+    echo 'OOPS';
+} else {
+    while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+        echo'<a href="formation-page.php?id='.$row['id'].'\'">'.$row['title'].'</a>';
+    }
+}
+
+?>
+                    
+                </div>
+                </div>
                 <li><a href="parascolaire.php">Parascolaires</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li><a href="inscription.php">Inscription</a></li>

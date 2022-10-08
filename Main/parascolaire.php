@@ -131,7 +131,7 @@ echo '<h2>' . $content['titre'] . '</h2>';
                     <a href="images/para/im9.jpg" target="_blank"><img src="images/para/im9.jpg" alt=""></a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="images/para/im10.jpg" target="_blank"><img src="images/parascolaire/im10.jpg" alt=""></a>
+                    <a href="images/para/im10.jpg" target="_blank"><img src="images/para/im10.jpg" alt=""></a>
                 </div>
             </div>
             <div class="swiper-button-next"></div>

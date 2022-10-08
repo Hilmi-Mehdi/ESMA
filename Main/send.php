@@ -46,7 +46,7 @@ if(isset($_GET['pr'])){
         header('location: inscription.php');
 
 }
-elseif ($_GET['eq']) {
+elseif (isset($_GET['eq'])) {
 
     $nom = $_GET['nom2'];
     $prenom = $_GET['prenom2'];
@@ -57,9 +57,9 @@ elseif ($_GET['eq']) {
     $formation_ob = $_GET['ob2'];
     $adress = $_GET['adr2'];
 
-    $stmt = $link->prepare("Insert into mails(type,title,nom,prenom,email,tel,ville, formation_ach,formation,adresse) values ('inscription', 'Inscription par equivalence', ?, ?, ?, ?, ?, ?, ?, ?");
+    $stmt = $link->prepare("Insert into mails(type,title,nom,prenom,email,tel,ville, formation_ach,formation,adresse) values ('inscription', 'Inscription par equivalence', ?, ?, ?, ?, ?, ?, ?, ?)");
     
-        $stmt->bind_param("sssssss", $nom, $prenom, $mail, $tel, $ville, $formation_ob, $formation, $adress);
+        $stmt->bind_param("ssssssss", $nom, $prenom, $mail, $tel, $ville, $formation_ob, $formation, $adress);
         $stmt->execute();
         $stmt->close();
         $link->close();
@@ -90,7 +90,7 @@ elseif ($_GET['eq']) {
         header('location: inscription.php');
 
 }
-elseif ($_GET['et']) {
+elseif (isset($_GET['et'])) {
 
     $nom = $_GET['nom3'];
     $prenom = $_GET['prenom3'];
@@ -101,9 +101,9 @@ elseif ($_GET['et']) {
     $formation_ob = $_GET['ob3'];
     $adress = $_GET['adr3'];
 
-    $stmt = $link->prepare("Insert into mails(type,title,nom,prenom,email,tel,ville, formation_ach,formation,adresse) values ('inscription', 'Inscription pour etudiants etrangers', ?, ?, ?, ?, ?, ?, ?, ?");
+    $stmt = $link->prepare("Insert into mails(type,title,nom,prenom,email,tel,ville, formation_ach,formation,adresse) values ('inscription', 'Inscription pour etudiants etrangers', ?, ?, ?, ?, ?, ?, ?, ?)");
     
-        $stmt->bind_param("sssssss", $nom, $prenom, $mail, $tel, $ville, $formation_ob, $formation, $adress);
+        $stmt->bind_param("ssssssss", $nom, $prenom, $mail, $tel, $ville, $formation_ob, $formation, $adress);
         $stmt->execute();
         $stmt->close();
         $link->close();
@@ -135,7 +135,7 @@ elseif ($_GET['et']) {
         header('location: inscription.php');
 
 }
-elseif ($_GET['fo']) {
+elseif (isset($_GET['fo'])) {
 
     $nom = $_GET['nom4'];
     $prenom = $_GET['prenom4'];
@@ -146,9 +146,9 @@ elseif ($_GET['fo']) {
     $formation_ob = $_GET['ob4'];
     $adress = $_GET['adr4'];
 
-    $stmt = $link->prepare("Insert into mails(type,title,nom,prenom,email,tel,ville, formation_ach,formation,adresse) values ('inscription', 'Inscription en formation professionnelle', ?, ?, ?, ?, ?, ?, ?, ?");
+    $stmt = $link->prepare("Insert into mails(type,title,nom,prenom,email,tel,ville, formation_ach,formation,adresse) values ('inscription', 'Inscription en formation professionnelle', ?, ?, ?, ?, ?, ?, ?, ?)");
     
-        $stmt->bind_param("sssssss", $nom, $prenom, $mail, $tel, $ville, $formation_ob, $formation, $adress);
+        $stmt->bind_param("ssssssss", $nom, $prenom, $mail, $tel, $ville, $formation_ob, $formation, $adress);
         $stmt->execute();
         $stmt->close();
         $link->close();
